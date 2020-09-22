@@ -1,0 +1,341 @@
+body {
+  margin: 0;
+  font-weight: 400;
+  width: 100%;
+  height: 100vh;
+  background: rgb(248, 248, 248);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  header {
+    background-attachment: unset !important;
+    background-size: cover !important;
+  }
+}
+
+header .overlay {
+  width: 100%;
+  margin-top: 50px;
+  height: auto;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient(135deg, #00000069 10%, #2e00006b 100%);
+}
+
+.overlay > h3 {
+  margin-bottom: 20px;
+  font-family: "nunito", sans-serif;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  background: rgb(153, 18, 18);
+  margin-bottom: 50px;
+  box-shadow: 0 3px 20px 0 #3f3f3f3b;
+}
+
+button:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  background: rgb(199, 13, 13);
+  cursor: pointer;
+}
+
+header .border_header {
+  flex: auto;
+  margin: 150px;
+  padding: 0 5px;
+  vertical-align: baseline;
+  text-align: center;
+  border-style: solid;
+  border-color: white;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 85px;
+  font-family: "nunito", sans-serif;
+  color: white;
+}
+
+@media (max-width: 360px) {
+  header h1 {
+    text-align: center;
+    font-size: 55px;
+    font-family: "nunito", sans-serif;
+    color: white;
+  }
+}
+
+strong {
+  color: white;
+  font-weight: 900;
+}
+
+.border_header {
+  flex: 1 1 auto;
+  height: 170px;
+  margin: 50px;
+  text-align: center;
+  border-color: white;
+  border: 6px;
+}
+
+.show-pagemobile {
+  margin: 25px !important;
+  line-height: 0 !important;
+}
+
+.show-pagemobile a {
+  line-height: 30px;
+}
+
+.tab-panel > p {
+  text-align: justify;
+  margin-right: 25px;
+}
+
+@media (max-width: 400px) {
+  /* fazendo os parágrafos se justificar em telas mobile */
+  .titulo_missao {
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: justify;
+    text-align: center;
+    color: rgb(47, 47, 47);
+  }
+}
+
+@media (max-width: 414px) {
+  /* fazendo os parágrafos se justificar em telas mobile */
+  .titulo_missao {
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: justify;
+    text-align: center;
+    color: rgb(47, 47, 47);
+  }
+}
+
+ol,
+ul {
+  /* tirando a bolinha de tópicos de um list */
+  list-style: none;
+}
+
+@media (max-width: 400px) {
+  .titulo_cursos > h2 {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+}
+
+.imagem_de_baixo_missao {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sub-header {
+  flex: 1;
+  height: 40px;
+  background-color: #d2dae2;
+}
+
+.link_form1 {
+  color: white;
+  text-decoration: none;
+}
+
+.link_form1:hover {
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+.mensagem,
+textarea {
+  color: rgb(161, 161, 161);
+}
+
+/* titulo dos FlexBox's */
+
+.textos_cursos {
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 50px;
+  background-image: linear-gradient(#e74c3c, #c0392b);
+  width: 50%;
+  height: 50px;
+}
+
+.textos_cursos > p {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  font-family: "nunito", sans-serif;
+  line-height: 50px;
+}
+
+/* Titulo responsivo dos FlexBox Mobile */
+
+@media (max-width: 400px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 60px;
+  }
+  .textos_cursos > p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 414px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos > p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+/* Titulo responsivo dos FlexBox Ipad */
+
+@media (max-width: 768px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos > p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos > p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+}
+
+/* Titulo responsivo dos FlexBox Ipad Pro */
+
+@media (max-width: 1366px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos > p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+}
+
+.logo__header {
+  margin-left: 50px;
+}
+
+@media (max-width: 1258px) {
+  .logo__header {
+    display: none;
+  }
+}
+
+.cursos-aside {
+  transition: 0.3s !important;
+}
+
+.cursos-aside:hover {
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  cursor: pointer !important;
+  color: rgb(177, 21, 21) !important;
+  padding-left: 5px;
+}
+
+.card_cursos {
+  margin: 20px 20px 0 0;
+  text-align: justify;
+  padding: 20px 50px 0 20px;
+  background-color: #fdfdfd;
+  border-left: 1px solid rgba(63, 63, 63, 0.151);
+  border-right: 1px solid rgba(63, 63, 63, 0.151);
+}
+
+.recent_card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}

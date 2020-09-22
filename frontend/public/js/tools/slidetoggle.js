@@ -1,0 +1,1 @@
+"use strict";var editModal=function(e){$("#edit-form"+e).slideToggle()},registerProf=function(){$("#post-prof").slideToggle()},registerFunc=function(){$("#post-func").slideToggle()};

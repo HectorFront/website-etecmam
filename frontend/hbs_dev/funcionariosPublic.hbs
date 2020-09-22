@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>Etec MAM - Funcionários</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/leaflet.css" />
+    <script src="/assets/js/leaflet.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/defaultFunc.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins.css">
+    <link rel="stylesheet" href="/assets/css/form.css">
+    <link rel="stylesheet" href="/assets/css/funcionarios.css">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    header {
+        background: url('/assets/images/banner_func.jpg');
+        text-align: center;
+        width: 100%;
+        height: auto;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .load {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+    }
+
+    .lds-ring {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+
+    .lds-ring div {
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border: 8px solid rgb(44, 44, 44);
+        border-radius: 50%;
+        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: rgb(44, 44, 44) transparent transparent transparent;
+    }
+
+    .lds-ring div:nth-child(1) {
+        animation-delay: -0.45s;
+    }
+
+    .lds-ring div:nth-child(2) {
+        animation-delay: -0.3s;
+    }
+
+    .lds-ring div:nth-child(3) {
+        animation-delay: -0.15s;
+    }
+
+    @keyframes lds-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <nav class="cd-nav"> <a class="logo__header" href="/"><img src="/assets/images/logo_sem60anosetecmam.png" alt="Logo"
+                width="80px" height="auto"></a>
+        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+            <li><a href="/">Página Inicial</a></li>
+            <li class="has-children"> <a href="#">A Escola</a>
+                <ul class="cd-secondary-nav is-hidden">
+                    <li class="go-back"><a href="#0"></a></li>
+                    <li class="has-children"> <a href="#">Sobre a escola</a>
+                        <ul class="is-hidden">
+                            <li class="go-back"><a href="#0">Voltar</a></li>
+                            <li><a href="/historico">Histórico</a></li>
+                            <li><a href="/diretoria">Direção</a></li>
+                            <li><a href="/professores">Professores</a></li>
+                            <li><a style="text-decoration: underline;" href="javascript:void(0)">Funcionários</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children"> <a href="#">Cursos</a>
+                        <ul class="is-hidden">
+                            <li class="go-back"><a href="#0">Voltar</a></li>
+                            <li><a href="/curso/em">Ensino Médio Regular</a></li>
+                            <li class="has-children"> <a href="#0">Ensino Médio Integrado</a>
+                                <ul class="is-hidden">
+                                    <li class="go-back"><a href="#0">Voltar</a></li>
+                                    <li><a href="/curso/em/integrado/mecatronica">Integrado em Mecatrônica</a></li>
+                                    <li><a href="/curso/em/integrado/ds">Integrado em
+                                            Desenv. de Sistemas</a></li>
+                                    <li><a href="/curso/em/habilitacao/adm">Habilitação Téc. em
+                                            Administração</a></li>
+                                    <li><a href="/curso/em/habilitacao/ds">Habilitação Téc.
+                                            em Desenv. de Sistemas AMS</a> </li>
+                                </ul>
+                            </li>
+                            <li class="has-children"> <a href="#0">Ensino Técnico</a>
+                                <ul class="is-hidden">
+                                    <li class="go-back"><a href="#0">Voltar</a></li>
+                                    <li><a href="/curso/marketing">Administração e Marketing</a></li>
+                                    <li><a href="/curso/ds">Desenvolvimento de Sistemas</a>
+                                    </li>
+                                    <li><a href="/curso/eletronica">Eletrônica</a></li>
+                                    <li><a href="/curso/enfermagem">Enfermagem</a></li>
+                                    <li><a href="/curso/mecanica">Mecânica</a></li>
+                                    <li><a href="/curso/seguranca-do-trabalho">Segurança do Trabalho</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-children"> <a href="#">Biblioteca</a>
+                        <ul class="is-hidden">
+                            <li class="go-back"><a href="#0">Voltar</a></li>
+                            <li><a href="https://bibliotecaativaetecmam.blogspot.com/">Blog</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-children"> <a href="#">Instituições Auxiliares</a>
+                        <ul class="is-hidden">
+                            <li class="go-back"><a href="#0">Voltar</a></li>
+                            <li><a href="/apm">APM</a></li>
+                            <li><a href="/cipa">CIPA</a></li>
+                            <li><a href="/conselho">Conselho de Escola</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-children"> <a href="#">Avaliações</a>
+                <ul class="cd-nav-icons is-hidden">
+                    <li class="go-back"><a href="#0"></a></li>
+                    <li> <a class="cd-nav-item item-1" href="/enem">
+                            <h3>ENEM - Exame Nacional do Ensino Médio</h3>
+                            <p>O Exame Nacional do Ensino Médio...</p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-2" href="/sai">
+                            <h3>SAI - Sistema de Avalição Institucional</h3>
+                            <p>O SAI, Sistema de Avaliação Institucional...</p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-3" href="/saresp">
+                            <h3>SARESP</h3>
+                            <p>O Saresp, Sistema de Avaliação...</p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-4" href="/observatorio">
+                            <h3>Observatório Escolar</h3>
+                            <p>O Observatório Escolar é um instrumento...</p>
+                        </a> </li>
+                </ul>
+            </li>
+            <li class="has-children"> <a href="#">Desenvolvedores</a>
+                <ul class="cd-nav-icons is-hidden">
+                    <li class="go-back"><a href="#0"></a></li>
+                    <li> <a class="cd-nav-item item-2" href="/desenvolvedor/hector">
+                            <h3>Hector Silva</h3>
+                            <p>• Programador Front-end <img width="25px" height="24px"
+                                    src="/assets/images/js_icon.png" /><img width="26px" height="25px"
+                                    src="/assets/images/icon_react.png" /></p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-1" href="/desenvolvedor/diogo">
+                            <h3>Diogo Alves</h3>
+                            <p>• Programador Mobile <img width="25px" height="24px"
+                                    src="/assets/images/js_icon.png" /><img width="25px" height="21px"
+                                    src="/assets/images/icon_native.png" /></p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-3" href="/desenvolvedor/giovane">
+                            <h3>Giovane Santos </h3>
+                            <p>• Programador Full Stack | DevOps <img width="25px" height="25px"
+                                    src="/assets/images/pato_icon.png" /> </p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-3" href="/desenvolvedor/norton">
+                            <h3>Norton Perantoni </h3>
+                            <p>• Programador Front-end <img width="25px" height="25px"
+                                    src="/assets/images/js_icon.png" /><img width="26px" height="25px"
+                                    src="/assets/images/icon_react.png" /></p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-3" href="/desenvolvedor/gustavo">
+                            <h3>Gustavo Fidencio</h3>
+                            <p>• Programador mobile <img width="25px" height="24px"
+                                    src="/assets/images/js_icon.png" /><img width="25px" height="21px"
+                                    src="/assets/images/icon_native.png" /></p>
+                        </a> </li>
+                    <li> <a class="cd-nav-item item-3" href="/desenvolvedor/arion">
+                            <h3>Arion Caio </h3>
+                            <p>• Programador Full Stack | DevOps <img width="25px" height="25px"
+                                    src="/assets/images/icon_stack.png" /></p>
+                        </a> </li>
+                </ul>
+            </li>
+            <li><a href="/login/admin"><i style="color: rgb(24, 24, 24);" class="fa fa-user-o"></i>&nbsp;{{user}}</a></li>
+        </ul>
+    </nav>
+    <div class="cd-main-header">
+        <ul class="cd-header-buttons">
+            <li><a class="cd-nav-trigger" href="#cd-primary-nav"><span></span></a></li>
+        </ul>
+    </div>
+    <main class="cd-main-content">
+        <header>
+            <div class="overlay">
+                <h1><b>Funcionários</b></h1>
+                <div class="hr-height"></div>
+                <h3 class="h3-header">LISTA ATUAL</h3>
+                <div class="hr-height"></div>
+            </div>
+        </header>
+        <div class="sub-header"> </div>
+        <div style="width: 75%; float: left; margin-bottom: 20px;" class="content-main">
+            <div class="title-funcionario">
+                <h1>Todos os funcionários</h1>
+            </div>
+            <div id="list-funcionarios">
+                <div class="load">
+                    <div class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="width: 25%; height:100%; float: left; position: relative; overflow: visible; min-height: 1px;"
+            class="aside">
+            <section>
+                        <div style="margin-top: 50px; width: 4px; background-color: brown; height: 60px; display: inline-block; margin-right: 10px;"
+                            class="barra"> </div>
+                        <h1
+                            style="margin-left: 10px; display: inline-block; margin-top: 50px; font-family: 'nunito', sans-serif; font-size: 20px; color: rgb(44, 44, 44); font-weight: 900;">
+                            TODOS OS CURSOS </h1>
+                    <div class="card_cursos">
+                        <a href="/curso/em">
+                                <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                    class="cursos-aside"><strong
+                                        style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;EDUCAÇÃO
+                                        BÁSICA</strong> - Ensino Médio&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-graduation-cap"></i>
+                                </p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/seguranca-do-trabalho">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;SEGURANÇA</strong> -
+                                Segurança do
+                                Trabalho&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-id-card"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/enfermagem">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;AMBIENTE E
+                                    SAÚDE</strong> - Enfermagem&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-user-md"></i>
+                            </p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/marketing">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;GESTÃO E
+                                    NEGÓCIOS</strong> - Administração e Marketing&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-list-ol"></i>
+                            </p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/em/habilitacao/adm">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;GESTÃO E
+                                    NEGÓCIOS</strong> - Ensino
+                                Médio com Habilitação Técnica Profissional em Administração&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-bars"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/eletronica">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;CONTROLE E PROCESSOS
+                                    INDUSTRIAIS</strong> - Eletrônica&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-lightbulb-o"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/mecanica">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;CONTROLE E PROCESSOS
+                                    INDUSTRIAIS</strong> - Mecânica&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-cog"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/em/integrado/mecatronica">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;CONTROLE E PROCESSOS
+                                    INDUSTRIAIS</strong> - Mecatrônica Integrado ao Ensino Médio&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-cogs"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/ds">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;INFORMAÇÃO E
+                                    COMUNICAÇÃO</strong> -
+                                Desenvolvimento de Sistemas&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-code"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/em/integrado/ds">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;INFORMAÇÃO E
+                                    COMUNICAÇÃO</strong> -
+                                Desenvolvimento de Sistemas Integrado ao Ensino Médio&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-laptop"></i></p>
+                        </a>
+                        <hr style="margin-left: 30px; width: 100%;"> <a href="/curso/em/habilitacao/ds">
+                            <p style="font-size: 12px; margin-top: 25px; margin-left: 30px; line-height: 25px; font-weight: 900; color: rgba(39, 39, 39, 0.589); font-family: 'Roboto', sans-serif; letter-spacing: 1px;"
+                                class="cursos-aside"><strong
+                                    style="font-weight: 900; color: rgba(0, 0, 0, 0.726);">>&nbsp;INFORMAÇÃO E
+                                    COMUNICAÇÃO</strong> -
+                                Ensino Médio com Habilitação Técnica Profissional em Desenvolvimento de Sistemas AMS&nbsp;<i style="color: brown; font-size: 20px;" class="fa fa-file-code-o"></i></p>
+                        </a>
+                         <hr style="margin-left: 30px; width: 100%;"> 
+                </div>
+                <div style="margin-top: 50px; width: 4px; background-color: brown; height: 60px; display: inline-block; margin-right: 10px;"
+                            class="barra"> </div>
+                        <h1
+                            style="margin-left: 10px; display: inline-block; margin-top: 50px; font-family: 'nunito', sans-serif; font-size: 20px; color: rgb(44, 44, 44); font-weight: 900;">
+                            CURSOS RECENTES </h1>
+                        <div class="card_cursos" style="margin-top: 10px !important; padding-top: 14px !important;">
+                             <a href="/curso/ds">
+                                 <div class="recent_card" style="padding-bottom: 30px;">
+                                          <img style="border: 5px solid rgba(226, 226, 226, 0.658);" src="/assets/images/recent_ds.jpeg" width="100px" height="70px"/>
+                                      <h1 class="cursos-aside" style="font-size: 12px; color: rgba(0, 0, 0, 0.726); height: 10px; margin: 17px 0 2px 10px; font-weight: 900; font-family: 'Roboto', sans-serif; letter-spacing: 1px;">>&nbsp;Desenvolvimento de Sistemas
+                                            </br><p style="height: 15px; width: auto; color: green; padding-top: 7px">GRATUITO</p>
+                                      </h1>
+                                 </div>
+                             </a>
+                             <a href="/curso/em/habilitacao/ds">
+                                 <div class="recent_card" style="padding-bottom: 30px;">
+                                          <img style="border: 5px solid rgba(226, 226, 226, 0.658);" src="/assets/images/recent_hbds.jpg" width="100px" height="70px"/>
+                                      <h1 class="cursos-aside" style="font-size: 12px; color: rgba(0, 0, 0, 0.726); line-height: 18px;  height: 10px; margin: 0 0 2px 10px; font-weight: 900; font-family: 'Roboto', sans-serif; letter-spacing: 1px;">>&nbsp;Ensino Médio com Habilitação Técnica em Desenvolvimento de Sistemas AMS
+                                            </br><p style="height: 15px; width: auto; color: green; padding-top: 3px">GRATUITO</p>
+                                      </h1>
+                                 </div>
+                             </a>
+                             <a href="/curso/em/habilitacao/adm">
+                                 <div class="recent_card" style="padding-bottom: 30px;">
+                                    <img style="border: 5px solid rgba(226, 226, 226, 0.658);" src="/assets/images/recent_hbadm.jpg" width="100px" height="70px"/>
+                                      <h1 class="cursos-aside" style="font-size: 12px; color: rgba(0, 0, 0, 0.726); line-height: 18px; height: 10px; margin: 0 0 2px 10px; font-weight: 900; font-family: 'Roboto', sans-serif; letter-spacing: 1px;">>&nbsp;Ensino Médio com Habilitação Técnica em Administração
+                                            </br><p style="height: 15px; width: auto; color: green; padding-top: 3px">GRATUITO</p>
+                                      </h1>
+                                 </div>
+                             </a>
+                        </div>
+                </section>
+                <section>
+                    <img src="/assets/images/student3.png"
+                        width="100%" height="auto">
+                </section>
+            </div>
+        </div>
+        </div>
+    </main>
+    <div id="map"></div>
+    <div id="sub-map"></div>
+    <section class="contact pt-100 pb-100" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 mx-auto text-center">
+                    <div class="section-title mb-100">
+                        <h4>Fale com a Escola</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-8">
+                    <form id="contatar-escola" class="contact-form">
+                        <div class="row">
+                            <div class="col-lg-12"> <input type="text" id="nome" placeholder="nome" required> </div>
+                            <div class="col-lg-12"> <input type="email" id="email" placeholder="email" required>
+                            </div>
+                            <div class="col-lg-12"> <input type="text" id="assunto" placeholder="assunto" required>
+                            </div>
+                            <div class="col-lg-12"> <input type="text" id="telefone" id="tel-cel"
+                                    placeholder="(dd) 00000-0000" required> </div>
+                            <div class="col-lg-12"> <textarea class="mensagem" id="mensagem" placeholder="mensagem"
+                                    cols="30" rows="10" required></textarea>
+                                <div id="button-submit"> <button type="submit">Enviar formulário</button> </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="single-contact"> <i class="fa fa-map-marker"></i>
+                        <h5>Etec | Mam</h5> <a class="link_form1"
+                            href="https://www.google.com.br/maps/@-22.2086459,-49.6486405,3a,75y,57.11h,87.17t/data=!3m6!1e1!3m4!1s341BBk0Uk4usNtFmf_PI2Q!2e0!7i13312!8i6656">
+                            <p>R. Belém, Williams, Garça - SP, 17400-000</p>
+                        </a>
+                    </div>
+                    <div class="single-contact"> <i class="fa fa-phone"></i>
+                        <h5>Telefone</h5> <a class="link_form1" href="tel:+55(14)3471-0099 ">
+                            <p>(14) 3471-0099</p>
+                        </a>
+                    </div>
+                    <div class="single-contact"> <i class="fa fa-envelope"></i>
+                        <h5>Email</h5> <a class="link_form1" href="mailto:e088ata@cps.sp.gov.br">
+                            <p>e088ata@cps.sp.gov.br</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cd-overlay"></div>
+    <footer class="footer-area footer--light">
+        <div class="footer-big">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="widget-about"> <a
+                                    href="https://www.cps.sp.gov.br/sobre-o-centro-paula-souza/"><img
+                                        src="/assets/images/cps_sp.png" alt="" class="img-fluid"></a>
+                                <p>O Centro Paula Souza (CPS) é uma autarquia do Governo do Estado de São Paulo,
+                                    vinculada à Secretaria de Desenvolvimento Econômico.</p>
+                                <ul class="contact-details">
+                                    <li> <span class="icon-earphones"></span> Prefeitura de <a
+                                            href="https://www.garca.sp.gov.br/">Garça</a> </li>
+                                    <li> <span class="icon-envelope-open"></span> <a
+                                            href="http://www.saopaulo.sp.gov.br/">Governo do Estado de São Paulo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="footer-menu">
+                                <h4 class="footer-widget-title">Softwares gratuitos</h4>
+                                <ul>
+                                    <li> <a href="http://students.autodesk.com/">AutoDesk – Education Community</a>
+                                    </li>
+                                    <li> <a href="https://www.ska.com.br/ska/blog/ska-e-ist-sistemas-anunciam-fusao">IST
+                                            Sistemas – Portal Educacional</a> </li>
+                                    <li> <a href="https://www.ska.com.br/ska/blog/ska-e-ist-sistemas-anunciam-fusao">Microsoft
+                                            Imagine</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="footer-menu">
+                                <h4 class="footer-widget-title">Links Úteis</h4>
+                                <ul>
+                                    <li> <a href="http://outlook.com/etec.sp.gov.br">Email Institucional</a> </li>
+                                    <li> <a href="https://nsa.cps.sp.gov.br/">NSA Online</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mini-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text">
+                            <p style="text-align: justify;">© Copyright {{year}}<a href="javascript:void(0)">Etec MAM</a>. Todos os direitos reservados.
+                                Criado pelos desenvolvedores <a href="/desenvolvedor/hector"> Hector Silva</a>, <a
+                                    href="/desenvolvedor/diogo">Diogo Alves</a>, <a href="/desenvolvedor/gustavo">Gustavo
+                                    Fidencio</a>, <a href="/desenvolvedor/giovane">Giovane Santos</a>, <a
+                                    href="/desenvolvedor/norton">Norton Perantoni</a> e <a href="/desenvolvedor/arion">Arion
+                                    Caio</a>. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/constants/env.js"></script>
+    <script src="/assets/js/jquery-2.1.1.js"></script>
+    <script src="/assets/js/jquery.mobile.custom.min.js"></script>
+    <script src="/assets/js/sweetalert.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="/assets/js/functions.js"></script>
+    <script src="/assets/js/map.js"></script>
+    <script src="/assets/js/jquerymask.js"></script>
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="/assets/js/mask.js"></script>
+    <script src="/assets/js/query/list/employeesPublic.js"></script>
+    <script src="/assets/js/controller/nodemailer/formulario.js"></script>
+</body>
+
+</html>
