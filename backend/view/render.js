@@ -24,21 +24,27 @@ module.exports = {
     * @method GET
     * @return {*}
     */
-   render: (page, req, res) => {
-     this.state.logged
-        ? res.render(page, { user: this.state.user, year: year })
-        : res.render(page, { user: 'Login', year: year });
-   },
+  render: (page, req, res) => {
+    const { logged, user, id } = this.state;
 
-   /**
-    *
-    * @param req
-    * @param res
-    * @method GET
-    * @return {*}
-    */
-   logout: (page, req, res) => {
-      this.state.logged = false;
-      res.redirect(page);
-   }
+    if (logged && page === 'login') {
+      return res.redirect(`/admin/school?param=${id}`);
+    } else if (logged && page !== 'login') {
+      return res.render(page, { user: user, year: year });
+    } else {
+      return res.render(page, { user: 'Login', year: year });
+    }
+  },
+
+  /**
+   *
+   * @param req
+   * @param res
+   * @method GET
+   * @return {*}
+   */
+  logout: (page, req, res) => {
+    this.state.logged = false;
+    return res.redirect(page);
+  }
 }
