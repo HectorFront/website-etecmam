@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // method render
-const pages = require('../views/render');
+const view = require('../view/render');
 // methods dao
 const contact = require('../controller/contact');
 const infoSchool = require('../controller/schoolInfo-dao');
@@ -17,47 +17,48 @@ const multer = require('multer');
 const multerImage = require('../config/multerImage');
 const multerVideo = require('../config/multerVideo');
 
-router // Routes of pages //
-    .get('/', pages.index)
+router
+    // Routes of view //
+    .get('/', (req, res) => view.render('index', req, res))
     .get('/home', (req, res) => res.redirect('/'))
-    .get('/historico', pages.historic)
-    .get('/apm', pages.apm)
-    .get('/cipa', pages.cipa)
-    .get('/conselho', pages.advice)
-    .get('/desenvolvedor/diogo', pages.biographyDiogo)
-    .get('/desenvolvedor/hector', pages.biographyHector)
-    .get('/desenvolvedor/gustavo', pages.biographyGustavo)
-    .get('/desenvolvedor/giovane', pages.biographyGiovane)
-    .get('/desenvolvedor/arion', pages.biographyArion)
-    .get('/desenvolvedor/norton', pages.biographyNorton)
-    .get('/diretoria', pages.directory)
-    .get('/admin/school', pages.editEtec)
-    .get('/registro/atividade', pages.activityRecord)
-    .get('/enem', pages.enem)
-    .get('/funcionarios/admin', pages.employeesPrivate)
-    .get('/funcionarios', pages.employeesPublic)
-    .get('/login/admin', pages.login)
+    .get('/historico', (req, res) => view.render('historico', req, res))
+    .get('/apm', (req, res) => view.render('apm', req, res))
+    .get('/cipa', (req, res) => view.render('cipa', req, res))
+    .get('/conselho', (req, res) => view.render('conselho', req, res))
+    .get('/desenvolvedor/diogo', (req, res) => view.render('diogo', req, res))
+    .get('/desenvolvedor/hector', (req, res) => view.render('hector', req, res))
+    .get('/desenvolvedor/gustavo', (req, res) => view.render('gustavo', req, res))
+    .get('/desenvolvedor/giovane',(req, res) => view.render('giovane', req, res))
+    .get('/desenvolvedor/arion', (req, res) => view.render('arion', req, res))
+    .get('/desenvolvedor/norton', (req, res) => view.render('norton', req, res))
+    .get('/diretoria',(req, res) => view.render('diretoria', req, res))
+    .get('/admin/school', (req, res) => view.render('editEtec', req, res))
+    .get('/registro/atividade', (req, res) => view.render('registroAtividade', req, res))
+    .get('/enem', (req, res) => view.render('enem', req, res))
+    .get('/funcionarios/admin', (req, res) => view.render('funcionarios', req, res))
+    .get('/funcionarios', (req, res) => view.render('funcionariosPublic', req, res))
+    .get('/login/admin', (req, res) => view.render('login', req, res))
     .get('/login', (req, res) => res.redirect('/login/admin'))
     .get('/admin', (req, res) => res.redirect('/login/admin'))
-    .get('/observatorio', pages.observatory)
-    .get('/curso/ds', pages.courseDS)
-    .get('/curso/eletronica', pages.courseEletronic)
-    .get('/curso/enfermagem', pages.courseNursing)
-    .get('/curso/seguranca-do-trabalho', pages.courseSecurityWorkspace)
-    .get('/curso/em/habilitacao/ds', pages.courseHabilitationDs)
-    .get('/curso/marketing', pages.courseMarketing)
-    .get('/curso/mecanica', pages.courseMecanic)
-    .get('/curso/em', pages.courseHighSchool)
-    .get('/curso/em/habilitacao/adm', pages.courseHighSchoolAdmin)
-    .get('/curso/em/integrado/ds', pages.courseHighSchoolDs)
-    .get('/curso/em/integrado/mecatronica', pages.courseHighSchoolMecatronic)
-    .get('/professores/admin', pages.teachersPrivate)
-    .get('/professores', pages.teacherPublic)
-    .get('/sai', pages.sai)
-    .get('/saresp', pages.saresp)
+    .get('/observatorio', (req, res) => view.render('observatorio', req, res))
+    .get('/curso/ds', (req, res) => view.render('pageDs', req, res))
+    .get('/curso/eletronica', (req, res) => view.render('pageEletronica', req, res))
+    .get('/curso/enfermagem', (req, res) => view.render('pageEnfermagem', req, res))
+    .get('/curso/seguranca-do-trabalho', (req, res) => view.render('pageSeguranca', req, res))
+    .get('/curso/em/habilitacao/ds', (req, res) => view.render('pageHabilitacaoDs', req, res))
+    .get('/curso/marketing', (req, res) => view.render('pageMarketing', req, res))
+    .get('/curso/mecanica', (req, res) => view.render('pageMecanica', req, res))
+    .get('/curso/em', (req, res) => view.render('pageMedio', req, res))
+    .get('/curso/em/habilitacao/adm', (req, res) => view.render('pageMedioAdmin', req, res))
+    .get('/curso/em/integrado/ds', (req, res) => view.render('pageMedioDs', req, res))
+    .get('/curso/em/integrado/mecatronica', (req, res) => view.render('pageMedioMecatronica', req, res))
+    .get('/professores/admin', (req, res) => view.render('professores', req, res))
+    .get('/professores', (req, res) => view.render('professoresPublic', req, res))
+    .get('/sai', (req, res) => view.render('sai', req, res))
+    .get('/saresp', (req, res) => view.render('saresp', req, res))
 
-// Routes of API //
-    .get('/admin/logout', pages.logout)
+    // Routes of API //
+    .get('/admin/logout', (req, res) => view.logout('/', req, res))
     .get('/get/logs', log.GETlogs)
     .get('/get/info/escola', infoSchool.GETinformationsSchool)
     .get('/get/noticias/escola', infoSchool.GETinformationsSchool)
@@ -108,6 +109,7 @@ router // Routes of pages //
             return res.status(200).send({ success: 'upload de video feito com sucesso' });
         return res.status(500).send({ error: 'falha de upload de video' });
     })
-    .get('*', pages.notfound)
+    // render page error 404
+    .get('*', (req, res) => view.render('404', req, res))
 
 module.exports = router;

@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const config = require('../config/serviceGmail');
 const conn = require('../config/database');
 const Storage = require('./storage');
-const views = require('../views/render');
+const views = require('../view/render');
 const templateRecovery = require('../templates/recovery');
 const token = Storage.hashingToken();
 /**

@@ -1,5 +1,5 @@
 const conn = require('../config/database');
-const views = require('../views/render');
+const views = require('../view/render');
 const Moment = require('moment');
 const Storage = require('./storage');
 const token = Storage.hashingToken();
