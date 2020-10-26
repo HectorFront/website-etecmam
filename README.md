@@ -4,7 +4,7 @@
 
 <html>
  <body>
-   <img src="frontend/public/images/node_etec.jpg" width="100%" height="500px"/>
+   <img src="frontend/public/images/node_etec.jpg" width="100%" height="auto"/>
  </body>
 </html>
 
