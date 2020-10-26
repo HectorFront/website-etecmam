@@ -24,6 +24,6 @@ app.use('/assets', express.static(__dirname + '/frontend/public'));
 
 app.use('/', router);
 
-app.listen(80, () => {
+app.listen(9192, () => {
   console.log({ success: "NodeJS - Server online" });
 });

@@ -1,4 +1,13 @@
 # Website Etec MAM 2020 version 1.1
+
+# TEST VERSION IN AMAZON WEB SERVICES - AWS [http://18.230.194.248]
+
+<html>
+ <body>
+   <img src="frontend/public/images/node_etec.jpg" width="100%" height="500px"/>
+ </body>
+</html>
+
 • Project made in **Node.js** with the help of the following developers:
 
  - *Hector Silva* (_Web_ developer)
@@ -56,9 +65,3 @@ executar projeto no navegador
 ```
 localhost:9192
 ```
-
-<html>
- <body>
-   <img src="frontend/public/images/node_etec.jpg" width="100%" height="500px"/>
- </body>
-</html>

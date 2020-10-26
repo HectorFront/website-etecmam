@@ -3,11 +3,11 @@
 var logoutAdmin = function logoutAdmin(idURL) {
     var tokenPermission = void 0;
     tokenPermission = localStorage.getItem(btoa('login'));
-    localStorage.removeItem('idUser');
-    localStorage.removeItem('login');
-    localStorage.removeItem('idDefault');
-    localStorage.removeItem('emailUser');
-    localStorage.removeItem('permission');
+    localStorage.removeItem(btoa('idUser'));
+    localStorage.removeItem(btoa('login'));
+    localStorage.removeItem(btoa('idDefault'));
+    localStorage.removeItem(btoa('emailUser'));
+    localStorage.removeItem(btoa('permission'));
     $.get(ENV.API_URL + '/get/user/' + idURL).done(function (res) {
 
         var data = {
