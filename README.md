@@ -1,11 +1,17 @@
 # Website Etec MAM 2020 version 1.1
 
+<html>
+  <body>
+    <img src="https://blog.infomach.com.br/wp-content/uploads/2019/11/capa-post-blog-20.jpg" width="100%" heigth="auto">
+  </body>
+</html>
+
 # TEST VERSION IN AMAZON WEB SERVICES - AWS [http://18.230.194.248]
 
 <html>
- <body>
-   <img src="frontend/public/images/node_etec.jpg" width="100%" height="auto"/>
- </body>
+  <body>
+      <img src="frontend/public/images/node_etec.jpg" width="100%" height="auto"/>
+  </body>
 </html>
 
 • Project made in **Node.js** with the help of the following developers:
