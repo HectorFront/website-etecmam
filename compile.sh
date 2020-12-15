@@ -20,14 +20,12 @@ compiler() {
   echo "[~Running PM2 Server in - $hostname] ================================";
   pm2 stop server.js
   pm2 start server.js
-  sleep 3
-  google-chrome http://127.0.1.1:9192
 }
 
 menu() {
   echo "[~Etec MAM] ================================"
   echo "[~Etec MAM] => 1 - Exit"
-  echo "[~Etec MAM] => 2 - Run Deploy - [~Etec MAM]"
+  echo "[~Etec MAM] => 2 - Run compilation - [~Etec MAM]"
   echo "[~Etec MAM] ================================"
   read option
   case $option in

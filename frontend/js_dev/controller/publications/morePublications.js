@@ -114,7 +114,7 @@ class MorePublicationss {
                     <div class="blog-slider__item swiper-slide">
                         <div style="background-image: url('/assets/images/publication.png');" class="blog-slider__img"></div>
                         <div class="blog-slider__content" ${responseMore.video_yt != 0 && 'style="width: 100% !important;'}">
-                            ${responseMore.video_yt != 0 ?
+                            ${responseMore.video_yt != 0 &&
                                 `<div class="video_yt_publication">
                                         <iframe
                                                 id="youtube_player"
@@ -125,17 +125,18 @@ class MorePublicationss {
                                                 allowFullScreen
                                                 allow='autoplay; encrypted-media'
                                             />
-                                    </div>`  : ' '}
-                            ${responseMore.imagem != 0 ?
+                                    </div>`}
+                            ${responseMore.imagem != 0 &&
                                 `<figure>
                                      <img src='/assets/${responseMore.imagem}' width="900px" height="auto" />
-                                </figure>` : ' '}
+                                </figure>`}
                             <div style="${responseMore.video == 0 ? 'display: none' : 'display: block'}">
                                 <div class="content__video">
-                                    <video controls class="video-publication" controls>
-                                        <source ${responseMore.video != 0 && `src="/assets/${responseMore.video}"`} type="video/mp4">
-                                    </video>
-                                    </div>
+                                ${responseMore.video != 0 &&
+                                    `<video controls class="video-publication" controls>
+                                        <source src="/assets/${responseMore.video}" type="video/mp4">
+                                    </video>`}
+                                </div>
                             </div>
                             <span style="font-weight: bold;" class="blog-slider__code">Quem publicou:</span>
                             <span class="blog-slider__code">

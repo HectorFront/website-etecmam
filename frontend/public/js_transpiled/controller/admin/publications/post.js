@@ -128,7 +128,7 @@ $('#form-publication').on('submit', function (event) {
                             assunto: !assunto ? '0' : assunto,
                             autor: res.userName,
                             descricao: descricao,
-                            imagem: !fileValue ? 0 : '/upload/images/' + newFileName,
+                            imagem: !fileValue ? 0 : 'upload/images/' + newFileName,
                             video: !videoValue ? 0 : 'upload/videos/' + newVideoName,
                             video_yt: !videoyt ? 0 : videoyt
                         };
