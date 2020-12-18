@@ -1,1 +1,1 @@
-const ENV = {'API_URL': `http://${location.hostname}:9192`};
+const ENV = {'API_URL': `http://${location.hostname}:80`};

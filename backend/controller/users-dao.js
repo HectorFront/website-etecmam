@@ -239,15 +239,17 @@ module.exports = {
       * @return {*}
       */
     UPDATEpassword: (req, res) => {
-        const id = req.params.id;
-        const { senha } = req.body;
+      if (req.headers.authorization === Storage.encrypt(token)) {
+          const id = req.params.id;
+          const { senha } = req.body;
 
-        const updatePassword = `UPDATE login SET senha='${Storage.encrypt(senha)}', codigo_recuperacao='${''}' WHERE id = ${id}`;
-        conn.query(updatePassword, (err, results) => {
-            if (err)
-                return res.status(500).send({ err: `erro ao redefinir senha de usuário`, status: err })
-            return res.status(200).send({ success: `senha de usuário redefinida com sucesso`, status: results });
-        })
+          const updatePassword = `UPDATE login SET senha='${Storage.encrypt(senha)}', codigo_recuperacao='' WHERE id = ${id}`;
+          conn.query(updatePassword, (err, results) => {
+              if (err)
+                  return res.status(500).send({ err: `erro ao redefinir senha de usuário`, status: err })
+              return res.status(200).send({ success: `senha de usuário redefinida com sucesso`, status: results });
+          })
+       }
     },
 
     /**
