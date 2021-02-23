@@ -2,7 +2,7 @@
 
 <html>
   <body>
-    <img src="https://blog.infomach.com.br/wp-content/uploads/2019/11/capa-post-blog-20.jpg" width="100%" heigth="auto">
+    <img src="https://d2908q01vomqb2.cloudfront.net/4d134bc072212ace2df385dae143139da74ec0ef/2020/07/17/20200422_aws_thumb_1024x512-003.jpg" width="100%" heigth="auto">
   </body>
 </html>
 
