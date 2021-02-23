@@ -6,7 +6,7 @@
   </body>
 </html>
 
-# TEST VERSION IN AMAZON WEB SERVICES - AWS [http://18.230.194.248](Offline)
+# TEST VERSION IN AMAZON WEB SERVICES - AWS [http://18.230.194.248] Offline
 
 <html>
   <body>
