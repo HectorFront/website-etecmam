@@ -1,3 +1,5 @@
+© Copyright 2021 Etec Monsenhor Antônio Magliano
+
 # Website Etec MAM 2020 version 1.1
 
 <html>
