@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Admin - Etec MAM</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/editetec.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="load">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <main id="content-main" class="content-main">
+        <header>
+            <div class="header"> <a href="/">
+                    <div style="width: auto;" class="page-initial"> <button class="initial"><i class="fa fa-home"></i><b
+                                style="font-weight: normal;">&nbsp;Home</b></button></div>
+                </a> <a href="/admin/logout">
+                    <div style="width: auto;" class="logout-button"></div>
+                </a>
+                <div class="logo">
+                    <h1 style="font-family: 'Poppins', sans-serif;">Etec<small>&copy;</small> <span class="user"> <span
+                                style="font-size: 20px;" id="user-logado"></span> <svg
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18">
+                                <path id="Star-2" fill="#00DA60"
+                                    d="M9 16l-1.9.9-1.3-1.7-2.1-.1-.3-2.1-1.9-1 .7-2.1-1.1-1.7 1.5-1.5-.2-2.1L4.5 4l.8-2 2.1.4L9 1.1l1.7 1.3 2-.4.9 2 2 .6-.1 2.1L17 8.2l-1.1 1.7.6 2.1-1.8 1-.4 2.1-2.1.1-1.3 1.7z">
+                                </path>
+                                <path id="Check-Icon" fill="#FFF" d="M13.1 7.3l-.9-.8-4.1 4.1-2.2-2.1-.9.9 3 3z"></path>
+                            </svg></h1> </span>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div style="height: auto;" class="box mt-3">
+                        <div class="box-header"></div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="user-photo d-flex justify-content-center"></div>
+                                    <h5 style="text-align: center; margin-top: 10px;" id="profile-user"></h5>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="info-user">
+                                        <ul class="list-profile">
+                                            <hr>
+                                            <li><span style="color: rgb(46, 151, 90);"><i
+                                                        class="fa fa-signal blink"></i></span>&nbsp;<strong
+                                                    style="font-weight: bold; color: rgb(7, 126, 56);">Online</strong>
+                                            </li>
+                                            <hr>
+                                            <li>Login email: <span style="color: brown;" id="info-email"></span></li>
+                                            <hr>
+                                            <li>Senha atual: <span class="senha-align"> <span style="color: brown;"
+                                                        id="info-senha"> </span> <button onClick="verSenha()"
+                                                        class="eye btn-outline-dark" type="button"> <span
+                                                            id="icon-eye"><i class="fa fa-eye-slash"></i></span>
+                                                    </button> </span></li>
+                                            <hr>
+                                            <li>Cargo: <span style="color: brown;" id="info-cargo"></span></li>
+                                            <hr>
+                                            <li>Permissão: <span style="color: brown;" id="info-permissao"></span></li>
+                                            <hr>
+                                            <section id="permissions-user"> </section>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div style="height: auto;" class="box mt-3">
+                        <div class="box-header">
+                            <div
+                                style="float: left; height: 35px;width: 2px;margin: 0px; padding: 0px; background-color: black;">
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h6 style="font-family: 'Open Sans', sans serif; margin-top: 10px;"><b><i
+                                            class="fa fa-cogs"></i> Configurações de usuário</b></h6>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <label>Nome</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend"> <label class="input-group-text"
+                                                for="inputGroupSelect01"><i class="fa fa-user"></i></label></div> <input
+                                            id="nome" type="text" placeholder="Nome" autocomplete="off"
+                                            class="form-control form-control" value="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <label>Login email</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend"> <label class="input-group-text"
+                                                for="inputGroupSelect01"><i class="fa fa-envelope"></i></label></div>
+                                        <input id="email" type="email" placeholder="Email" autocomplete="off"
+                                            class="form-control form-control" value="">
+                                    </div>
+                                </div>
+                                <div id="input-cargo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12"></div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div id="senha-fraca_update"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group"> <label>Senha</label>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text" id="eye-senha"><span
+                                                        id="icon-input-eye"><i class="fa fa-eye-slash"></i></span></div>
+                                            </div> <input type="password" class="form-control" id="senha"
+                                                placeholder="Senha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group"> <label>Confirmar senha</label>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text" id="eye-confirmar_senha"><span
+                                                        id="icon-input-confirmeye"><i
+                                                            class="fa fa-eye-slash"></i></span></div>
+                                            </div> <input type="password" class="form-control" id="confirmar_senha"
+                                                placeholder="Confirmar senha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <button type="button"
+                                        class="btn btn-dark pull-right" onclick="updateUser()">Salvar</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="list-users" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Listagem de usuários de login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span> </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <span class="input-group-text"><i
+                                                        class="fa fa-search"></i></span></div> <input type="text"
+                                                class="form-control" id="search-users" placeholder="Pesquisar usuário">
+                                        </div>
+                                    </div>
+                                    <div style="width: 100%; height: 100%;" id="content-users">
+                                        <div class="load">
+                                            <div class="lds-ring">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="register-user" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cadastrar usuário de login</h5> <button
+                                    type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span> </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <label>Nome do usuário</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    for="inputGroupSelect01"><i class="fa fa-user"></i></label></div>
+                                            <input id="nome-register" type="text" placeholder="Nome" autocomplete="off"
+                                                class="form-control form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <label>Login de email</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    for="inputGroupSelect01"><i class="fa fa-envelope"></i></label>
+                                            </div> <input id="email-register" type="email" placeholder="Digite o email"
+                                                autocomplete="off" class="form-control form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> <label>Senha</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    id="eye-register_senha" for="inputGroupSelect01"><span
+                                                        id="span-eye-register"><i
+                                                            class="fa fa-eye-slash"></i></span></label></div> <input
+                                                id="senha-register" type="password" placeholder="Digite uma senha"
+                                                autocomplete="off" class="form-control form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> <label>Confirmar senha</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    id="eye-register_confirmsenha" for="inputGroupSelect01"><span
+                                                        id="span-eye-confregister"><i
+                                                            class="fa fa-eye-slash"></i></span></label></div> <input
+                                                id="confsenha-register" type="password" placeholder="Confirme a senha"
+                                                autocomplete="off" class="form-control form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div id="senha-fraca"></div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> <label>Gênero</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    for="inputGroupSelect01"><i class="fa fa-venus-mars"></i></label>
+                                            </div> <select class="custom-select" id="sexo-register">
+                                                <option value="0" selected>Masculino</option>
+                                                <option value="1">Feminino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"> <label>Permissões de
+                                            usuário</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    for="inputGroupSelect01"><i class="fa fa-shield"></i></label></div>
+                                            <select class="custom-select" id="permissao-register">
+                                                <option title="Somente cadastros, postagens de notícias e edição"
+                                                    value="0" selected>Usuário comum (Padrão)</option>
+                                                <option title="Todos cadastros, postagens de notícias, edição e deleção"
+                                                    value="1">Administrador Global (Permisão total)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> <label>Cargo</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend"> <label class="input-group-text"
+                                                    for="inputGroupSelect01"><i class="fa fa-briefcase"></i></label>
+                                            </div> <select class="custom-select" id="cargo-register">
+                                                <option value="Assistente" selected>Assistente</option>
+                                                <option value="Desenvolvedor">Desenvolvedor</option>
+                                                <option value="Diretor">Diretor</option>
+                                                <option value="Coordenador">Coordenador</option>
+                                                <option value="Professor">Professor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer"> <button type="button" onclick="$('#fade-senha').remove();"
+                                    class="btn btn-dark" data-dismiss="modal">Cancelar</button> <button
+                                    style="background-color: rgb(187, 57, 57) !important; color: white !important;"
+                                    onclick="registerUser()" type="button" class="btn">Cadastrar</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <section class="form-group d-flex justify-content-start"> <a href="/professores/admin"><button
+                                style="width:auto; margin-right: 5px;" class="infra-prof"> <i
+                                    class="fa fa-pencil color-fa"></i> Professores</button></a> <a
+                            href="/funcionarios/admin"><button style="width:auto;" class="infra-prof"> <i
+                                    class="fa fa-users color-fa"></i> Funcionários</button></a> </section>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <section class="form-group d-flex justify-content-end"> <a href="/registro/atividade"><button
+                                style="width:auto;" class="infra-prof"> <i class="fa fa-list color-fa"></i> Registro de
+                                atividade</button> </a> </section>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="title-event">
+                        <h1><i class="fa fa-th-list color-fa"></i> Postar publicações</h1>
+                    </div>
+                    <div class="image-event"> <img class="example-edit-image" src="/assets/images/eventEtec.png"
+                            width="100%" height="100%"
+                            style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+                    <div class="edit-event">
+                        <form id="form-publication">
+                            <div class="form-group"> <label>Autor</label>
+                                <div class="input-group mb-3"> <input type="text" id="autor_publication"
+                                        class="form-control" placeholder="Autor" disabled>
+                                    <div class="input-group-append">
+                                        <div class="input-group-append"> <span class="input-group-text"
+                                                id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="file-upload"> <button class="file-upload-btn" type="button"
+                                    onclick="$('.file-upload-input').trigger('click')">Adicionar imagem <i
+                                        class="fa fa-photo"></i></button>
+                                <div class="image-upload-wrap"> <input class="file-upload-input" type='file'
+                                        id="image-publication" onchange="readURL(this);" accept="image/*" />
+                                    <div class="drag-text">
+                                        <h3>Arraste e solte um arquivo ou clique em adicionar imagem</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content"> <img class="file-upload-image" src="#"
+                                        alt="Você só pode fazer upload de imagens!" />
+                                    <div class="image-title-wrap"> <button type="button" onclick="removeUpload()"
+                                            class="remove-image"><i class="fa fa-close"></i>&nbsp;<span
+                                                class="image-title">Uploaded Image</span></button></div>
+                                </div>
+                            </div>
+                            <div class="video-upload mt-4 mb-4"> <label class="add-video">Adicionar vídeo <i
+                                        class="fa fa-video-camera"></i></label> <span> <input
+                                        class="form-control input-video" onchange="verifyValue(this)" type='file'
+                                        id="video-publication" accept="video/*" /> </span> <span style="float: right;"
+                                    id="close"></span></div>
+                            <div class="form-group"> <label>Vídeo do <i style="font-size: 50px"
+                                        class="fa fa-youtube"></i></label>
+                                <div class="input-group mb-3"> <input type="text" id="video-yt" class="form-control"
+                                        placeholder="URL do vídeo">
+                                    <div class="input-group-append">
+                                        <div class="input-group-append"> <span class="input-group-text"
+                                                id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"> <label>Título do evento ou publicação</label>
+                                <div class="input-group mb-3"> <input type="text" id="titleevent" class="form-control"
+                                        placeholder="Título principal" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-append"> <span class="input-group-text"
+                                                id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"> <label>Assunto</label>
+                                <div class="input-group mb-3"> <input type="text" id="assuntoevent" class="form-control"
+                                        placeholder="Não coloque um assunto muito grande">
+                                    <div class="input-group-append">
+                                        <div class="input-group-append"> <span class="input-group-text"
+                                                id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group"> <label for="exampleInputPassword1">Descrição</label><textarea
+                                    type="text" id="descevent" placeholder="Descrição da publicação"
+                                    class="form-control" id="textarea" required></textarea></div><button type="submit"
+                                class="btn salvar">Postar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="title-event">
+                        <h1><i class="fa fa-tags color-fa"></i> Informações da escola</h1>
+                    </div>
+                    <div class="image-infogeral"> <img class="example-edit-image" src="/assets/images/infogeral.png"
+                            width="100%" height="100%"
+                            style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+                    <form id="info-escola">
+                        <div class="form-group"> <label>Quantidade de Alunos</label>
+                            <div class="input-group mb-3"> <input type="number" id="alunos" class="form-control"
+                                    placeholder="somente números" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Anos de Tradição</label>
+                            <div class="input-group mb-3"> <input type="number" id="tradicao" class="form-control"
+                                    placeholder="somente números" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Quantidade de Cursos</label>
+                            <div class="input-group mb-3"> <input type="number" id="quantidadecursos"
+                                    class="form-control" placeholder="somente números" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div><button type="submit" class="btn salvar">Salvar</button>
+                    </form> <img src="/assets/images/admin_image.png" height="auto" width="100%" />
+                </div>
+                <hr>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="title-event">
+                        <h1><i class="fa fa-tags color-fa"></i> Informações da coordenação</h1>
+                    </div>
+                    <div class="image-infogeral"> <img class="example-edit-image" src="/assets/images/coordenacao.png"
+                            width="100%" height="100%"
+                            style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+                    <form id="info-coordination">
+                        <div class="form-group"> <label>Coordenação Ensino Médio</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoMedio" class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação da escola" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Administração</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoAdm" class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação de administração" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Automação Industrial e Eletrônica</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoIndustrial"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação de Automação Industrial e Eletrônica"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Desenvolvimento de Sistemas</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoDs" class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação de Desenvolvimento de Sistemas"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Enfermagem</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoEnfer" class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação de Enfermagem" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Etim Desenvolvimento de Sistemas</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoEtimDs"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação do Etim de Desenvolvimento de Sistemas"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Etim Mecatrônica</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoEtimMeca"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação do Etim de Mecatrônica"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenação Mecânica e Mecatrônica</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoMecanicaMecatronica"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente na coordenação de Mecânica e Mecatrônica"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div><button type="submit" class="btn salvar">Salvar</button>
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="title-event">
+                        <h1><i class="fa fa-tags color-fa"></i> Informações da diretoria</h1>
+                    </div>
+                    <div class="image-infogeral"> <img class="example-edit-image" src="/assets/images/diretoria.png"
+                            width="100%" height="100%"
+                            style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;"></div>
+                    <form id="info-directory">
+                        <div class="form-group"> <label>Diretoria da escola</label>
+                            <div class="input-group mb-3"> <input type="text" id="diretoria" class="form-control"
+                                    placeholder="Coloque quem está atualmente na diretoria da escola" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Diretor de Serviço Administrativo</label>
+                            <div class="input-group mb-3"> <input type="text" id="diretorAdm" class="form-control"
+                                    placeholder="Coloque quem está atualmente na diretoria de Serviço Administrativo"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Diretor de Serviço Acadêmico</label>
+                            <div class="input-group mb-3"> <input type="text" id="diretorAcademico" class="form-control"
+                                    placeholder="Coloque quem está atualmente na diretoria de Serviço Acadêmico"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Assistente Técnico Administrativo</label>
+                            <div class="input-group mb-3"> <input type="text" id="assistenteTec" class="form-control"
+                                    placeholder="Coloque quem está atualmente de Assistente Técnico Administrativo"
+                                    required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenadora Pedagógica</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoPedagogica"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente de Coordenadora Pedagógica" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Coordenadora de Estágio</label>
+                            <div class="input-group mb-3"> <input type="text" id="coordenacaoEstagio"
+                                    class="form-control"
+                                    placeholder="Coloque quem está atualmente de Coordenadora de Estágio" required>
+                                <div class="input-group-append">
+                                    <div class="input-group-append"> <span class="input-group-text"
+                                            id="inputGroupFileAddon02"><i class="fa fa-edit"></i></span></div>
+                                </div>
+                            </div>
+                        </div><button type="submit" class="btn salvar">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="mini-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text">
+                            <p>© Copyright {{year}} <a href="javascript:void(0)">Etec MAM</a>. Todos os direitos
+                                reservados. Criado pelos desenvolvedores <a href="/desenvolvedor/hector"> Hector
+                                    Silva</a>, <a href="/desenvolvedor/diogo">Diogo Alves</a>, <a
+                                    href="/desenvolvedor/gustavo">Gustavo Fidencio</a>, <a
+                                    href="/desenvolvedor/giovane">Giovane Santos</a>, <a
+                                    href="/desenvolvedor/norton">Norton Perantoni</a> e <a
+                                    href="/desenvolvedor/arion">Arion Caio</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/assets/constants/env.js"></script>
+    <script src="/assets/js/jquery-2.1.1.js"></script>
+    <script src="/assets/js/moment.js"></script>
+    <script src="/assets/js/moment-tz.js"></script>
+    <script src="/assets/js/pt-br.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/sweetalert.min.js"></script>
+    <script src="/assets/services/platform.js"></script>
+    <script src="/assets/js/controller/admin/user/getIduserparam.js"></script>
+    <script src="/assets/js/controller/admin/user/viewUser.js"></script>
+    <script src="/assets/js/query/list/dataCoordinationDirectory.js"></script>
+    <script src="/assets/js/controller/admin/user/logoutUser.js"></script>
+    <script src="/assets/js/controller/admin/publications/post.js"></script>
+    <script src="/assets/js/controller/admin/infoSchool/infoEscola.js"></script>
+    <script src="/assets/js/controller/admin/coordination/update.js"></script>
+    <script src="/assets/js/controller/admin/directory/update.js"></script>
+    <script src="/assets/js/controller/admin/user/verSenha.js"></script>
+    <script src="/assets/js/controller/admin/user/Registeruser.js"></script>
+    <script src="/assets/js/controller/admin/user/UpdateuserLogged.js"></script>
+    <script src="/assets/js/controller/admin/user/Deleteuser.js"></script>
+    <script src="/assets/js/query/list/users.js"></script>
+    <script src="/assets/js/tools/filterUsers.js"></script>
+    <script src="/assets/js/tools/viewUpload.js"></script>
+</body>
+
+</html>

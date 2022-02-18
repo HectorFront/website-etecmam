@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$.get(ENV.API_URL+"/get/coordenacao").done(function(o){$("#coordenacao_medio").html(o.ensino_medio)}).fail(function(){console.log("Error in request coordenacao ensino médio")})});

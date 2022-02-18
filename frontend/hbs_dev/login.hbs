@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Fazer login na conta da Etec MAM</title>
+    <link rel="icon" href="/assets/images/icon_login.png">
+    <link rel="stylesheet" href="/assets/css/loginSecretaria.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="modal fade" id="termos" aria-labelledby="termos" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Termos de uso</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="height: 80vh; overflow-y: scroll;">
+                    <div class="content__termos">
+                        <figure style="margin-left: 30px;">
+                            <img src="/assets/images/suaconta.png" width="auto" height="400px">
+                        </figure>
+                        <section class="block__termos">
+                            <h1>Sua Conta Etec MAM</h1>
+                            <p>Se você é funcionário da instituição, você pode contatar com a direção local para criar
+                                uma conta para sua
+                                conveniência. Todos os serviços administrativos do site exigem que você tenha uma conta
+                                para que eles
+                                funcionem.
+                            </p>
+                            <p>Você é responsável por tudo o que faz com sua Conta da Etec MAM, incluindo tomar as
+                                medidas necessárias para manter sua conta segura. Por exemplo, criar uma senha forte,
+                                evitar usar senhas padrões de outras plataformas e logar em outro tipo dispositivo fora
+                                da instituição.
+                            </p>
+                        </section>
+                        <figure style="margin-left: 30px;">
+                            <img src="/assets/images/termos.png" width="auto" height="350px">
+                        </figure>
+                        <section class="block__termos">
+                            <h1>Em caso de problemas ou discordâncias</h1>
+                            <p>O usuário tem total direito em determinada qualidade da plataforma e maneiras de
+                                resolver problemas se algo der errado. Estes termos não limitam nem retiram nenhum
+                                desses direitos.
+                            </p>
+                        </section>
+                        <section class="block__termos">
+                            <h1>Garantia</h1>
+                            <p>Os desenvolvedores fornecem os serviços usando um nível razoável de habilidade e cuidado.
+                                Se não
+                                alcançarmos o nível de qualidade descrito nesta garantia, você concorda em nos informar
+                                para que possamos trabalhar juntos de modo a resolver o problema.
+                            </p>
+                        </section>
+                        <figure style="margin-left: 30px;">
+                            <img src="/assets/images/termos_dev.png" width="auto" height="300">
+                        </figure>
+                        <section class="block__termos">
+                            <h1>Comunicações relacionadas a atualizações</h1>
+                            <p>Sobre as atualizações da plataforma às vezes os desenvolvedores vão enviar avisos e
+                                outras
+                                informações.
+                            </p>
+                            <p>Se você optar por nos dar feedback, como sugestões para melhorar a plataforma,
+                                poderemos agir de acordo com essa informação sem qualquer compromisso com a instituição.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="privacidade" aria-labelledby="privacidade" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Privacidade</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <figure style="margin-left: 30px;">
+                        <img src="/assets/images/privacidade.png" width="auto" height="200px">
+                    </figure>
+                    <section class="block__termos">
+                        <h1>Incorporamos segurança na plataforma para proteger suas informações de login</h1>
+                        <p>Toda a plataforma foi desenvolvida com recursos de segurança e criptografia no Banco de Dados
+                            que
+                            protegem
+                            continuamente suas informações. E
+                            se detectarmos algo perigoso e digno de notificação, notificaremos e orientaremos a
+                            instituição sobre
+                            as etapas necessárias para se manter em segurança.
+                        </p>
+                        <p>Todos os desenvolvedores fizeram o possível para proteger você e o seus dados de usuário,
+                            alteração, ou destruição não autorizada de suas informações.</p>
+                    </section>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="/">
+        <p class="voltar" title="Você está perdido?"><i class="fa fa-chevron-circle-left"></i> Voltar para página
+            inicial <i class="fa fa-home"></i></p>
+    </a>
+    <div class="login-page">
+        <center>
+            <img src="/assets/images/logo_sem60anosetecmam.png" width="auto" height="100px" title="Etec MAM" />
+        </center>
+        <h3 style="text-align: center; font-family: " Roboto", sans-serif; color: rgb(116, 116, 116);"
+            id="title__login">Fazer login</h3>
+        <p style="text-align: center; font-family: 'Roboto'; color: rgb(66, 66, 66);">Use sua Conta da Etec MAM</p>
+        <div class="{{class}}" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p style="text-align: center; padding: 0px; margin: 0px; font-family: 'Raleway', sans-serif;">{{msg}}</p>
+        </div>
+        <div class="form">
+            <form action="/login/admin" class="login-form" method="POST">
+                <div id="input_change">
+                    <input style="position: relative;" type="text" name="email" id="email" placeholder="E-mail"
+                        required />
+                </div>
+                <div class="senha">
+                    <input type="password" name="senha" id="senha-login" placeholder="Senha" size="5" required />
+                    <div id="eye-senha" class="ver-senha">
+                        <span id="icon-eye-login"><i class="fa fa-eye-slash"></i></span>
+                    </div>
+                </div>
+                <button title="Clique para logar" id="button_login" type="submit">Entrar</button>
+            </form>
+            <span title="Clique aqui para redefinir sua senha" onclick="checkUserPassword()"
+                style="padding: 10px 0 5px 0; font-size: 13px; float:right;">
+                <a style="color: brown; font-family: 'Raleway', sans-serif;" href="#">Esqueceu sua senha?</a>
+            </span>
+        </div>
+        <div class="options__login">
+            <p data-toggle="modal" data-target="#privacidade"><i class="fa fa-question-circle"></i>&nbsp;Privacidade</p>
+            <p data-toggle="modal" data-target="#termos">Termos</p>
+        </div>
+    </div>
+    <script src="/assets/constants/env.js"></script>
+    <script src="/assets/js/jquery-2.1.1.js"></script>
+    <script src="/assets/js/controller/login/verSenha.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/sweetalert.min.js"></script>
+    <script src="/assets/js/controller/login/resetPassword/resetPass.js"></script>
+    <script src="/assets/js/moment.js"></script>
+    <script src="/assets/js/moment-tz.js"></script>
+</body>
+
+</html>

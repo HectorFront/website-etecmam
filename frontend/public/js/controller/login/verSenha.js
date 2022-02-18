@@ -1,0 +1,1 @@
+"use strict";$("#eye-senha").on("click",function(){var e=$("#senha-login");"password"===e.attr("type")?(e.attr("type","text"),$("#icon-eye-login").html('<i class="fa fa-eye"></i>')):(e.attr("type","password"),$("#icon-eye-login").html('<i class="fa fa-eye-slash"></i>'))});

@@ -1,0 +1,234 @@
+html,
+body {
+    background-color: rgb(243, 243, 243);
+    width: 100%;
+    height: 100%;
+}
+
+.content-main {
+    height: 100%;
+    width: 100%;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(39, 39, 39)), color-stop(0.72, rgb(39, 39, 39)), color-stop(0.86, rgb(39, 39, 39)));
+}
+
+.mini-footer {
+    background: #131313;
+    text-align: center;
+    padding: 32px 0
+}
+
+.mini-footer p {
+    text-align: justify;
+    margin: 0;
+    line-height: 26px;
+    font-size: 15px;
+    color: #999
+}
+
+.mini-footer p a {
+    color: brown
+}
+
+.mini-footer p a:hover {
+    color: rgb(200, 67, 67)
+}
+
+.widget-about img {
+    display: block;
+    margin-bottom: 30px;
+}
+
+.widget-about p {
+    font-weight: 400;
+}
+
+.widget-about .contact-details {
+    margin: 30px 0 0 0
+}
+
+.widget-about .contact-details li {
+    margin-bottom: 10px
+}
+
+.widget-about .contact-details li:last-child {
+    margin-bottom: 0
+}
+
+.widget-about .contact-details li span {
+    padding-right: 12px
+}
+
+.widget-about .contact-details li a {
+    color: rgb(187, 57, 57)
+}
+
+.load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: 100vh;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid rgb(44, 44, 44);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: rgb(44, 44, 44) transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.voltar {
+    font-weight: 500;
+    z-index: 800;
+    background-color: rgb(37, 37, 37);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+
+.voltar:hover {
+    background-color: rgb(73, 73, 73);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.title-registro__atividade {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.bg-yellow {
+    color: rgb(243, 156, 18) !important;
+}
+
+.bg-blue {
+    color: rgb(17, 139, 195) !important;
+}
+
+.time-label>span {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.timeline>div {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.timeline>div>li {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.timeline>div>li>.timeline-item {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px;
+    margin-top: 0px;
+    color: rgb(68, 68, 68);
+    margin-right: 15px;
+    position: relative;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    padding: 0px;
+}
+
+.timeline>div>li>.timeline-item>.time {
+    color: rgb(153, 153, 153);
+    float: right;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.timeline>div>li>.timeline-item>.timeline-header {
+    color: rgb(85, 85, 85);
+    font-size: 16px;
+    line-height: 1.1;
+    margin: 0px;
+    border-bottom: 1px solid rgb(244, 244, 244);
+    padding: 10px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: -15px;
+}
+
+.list-registros {
+    height: 700px;
+    overflow-y: auto;
+}
+
+@media(max-width: 500px) {
+    .list-registros {
+        height: 400px;
+        overflow-y: auto;
+    }
+    .mini-footer {
+        position: fixed;
+        bottom: 0;
+    }
+}

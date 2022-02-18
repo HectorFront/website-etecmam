@@ -1,0 +1,502 @@
+body {
+  margin: 0;
+  font-weight: 400;
+  width: 100%;
+  height: 100vh;
+  background: rgb(248, 248, 248);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: url('/assets/images/banner_func.jpg');
+  text-align: center;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+@media(max-width: 800px){
+  header{
+    background-attachment: unset !important;
+    background-size: cover !important;
+  }
+}
+
+header .overlay {
+  width: 100%;
+  margin-top: 50px;
+  height: auto;
+  padding: 50px;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #00000069 10%, #2e00006b 100%);
+}
+
+.overlay>h3 {
+  margin-bottom: 20px;
+  font-family: 'nunito', sans-serif;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: rgb(255, 255, 255);
+  background: rgb(153, 18, 18);
+  margin-bottom: 50px;
+  box-shadow: 0 3px 20px 0 #3f3f3f3b;
+}
+
+button:hover {
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  background: rgb(199, 13, 13);
+  cursor: pointer;
+}
+
+.edit-func{
+  border-radius: 50px;
+}
+
+.edit-form {
+  display: none;
+}
+
+.info-func{
+  padding: 0 20px;
+}
+
+#post-func {
+  display: none;
+}
+
+.title-func>h1 {
+  text-align: center;
+  margin: 15px;
+  font-size: 40px;
+  font-family: 'montserrat', sans-serif;
+}
+
+header .border_header {
+  flex: auto;
+  margin: 150px;
+  padding: 0 5px;
+  vertical-align: baseline;
+  text-align: center;
+  border-style: solid;
+  border-color: white;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 85px;
+  font-family: 'nunito', sans-serif;
+  color: white;
+}
+
+@media(max-width: 360px) {
+  header h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'nunito', sans-serif;
+    color: white;
+  }
+}
+
+strong {
+  color: white;
+  font-weight: 900;
+}
+
+.border_header {
+  flex: 1 1 auto;
+  height: 170px;
+  margin: 50px;
+  text-align: center;
+  border-color: white;
+  border: 6px;
+}
+
+@media (max-width: 400px) {
+  /* fazendo os parágrafos se justificar em telas mobile */
+  .titulo_missao {
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: justify;
+    text-align: center;
+    color: rgb(47, 47, 47);
+  }
+}
+
+@media (max-width: 414px) {
+  /* fazendo os parágrafos se justificar em telas mobile */
+  .titulo_missao {
+    text-transform: uppercase;
+    margin-top: 10px;
+    text-align: justify;
+    text-align: center;
+    color: rgb(47, 47, 47);
+  }
+}
+
+ol, ul {
+  /* tirando a bolinha de tópicos de um list */
+  list-style: none;
+}
+
+@media (max-width: 400px) {
+  .titulo_cursos>h2 {
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+}
+
+.imagem_de_baixo_missao {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sub-header {
+  flex: 1;
+  height: 40px;
+  background-color: #d2dae2;
+}
+
+.link_form1 {
+  color: white;
+  text-decoration: none;
+}
+
+.link_form1:hover {
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+.mensagem, textarea {
+  color: rgb(161, 161, 161);
+}
+
+/* titulo dos FlexBox's */
+
+.textos_cursos {
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 50px;
+  background-image: linear-gradient(#e74c3c, #c0392b);
+  width: 50%;
+  height: 50px;
+}
+
+.textos_cursos>p {
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  font-family: 'nunito', sans-serif;
+  line-height: 50px;
+}
+
+/* Titulo responsivo dos FlexBox Mobile */
+
+@media (max-width: 400px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 60px;
+  }
+  .textos_cursos>p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 23px;
+  }
+}
+
+@media (max-width: 414px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos>p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 25px;
+  }
+}
+
+/* Titulo responsivo dos FlexBox Ipad */
+
+@media (max-width: 768px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos>p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos>p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+}
+
+@media(max-width: 1265px) {
+  .content-main {
+    width: 100% !important;
+  }
+
+  .aside {
+    display: none;
+  }
+
+  .overlay>h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .hr-height {
+    display: none;
+  }
+
+  .image-ds {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .title-courses-responsivo {
+    margin-top: 55px;
+    display: inline-flex;
+    margin-bottom: 25px;
+  }
+
+  .title-courses-responsivo>h1 {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #232323;
+  }
+
+  .faixa-courses-responsivo {
+    display: inline-flex;
+    margin-right: 20px;
+    width: 3px;
+    height: 50px;
+    background-color: rgb(216, 45, 45);
+  }
+
+  .title-courses-responsivo>h1 {
+    text-align: center;
+    font-family: 'montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #232323;
+  }
+
+  #subtitle-h1 {
+    color: white;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .title-home {
+    text-align: center;
+    font-size: 40px;
+    color: rgb(65, 65, 65);
+    font-family: 'nunito', sans-serif;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: 600;
+  }
+
+
+  .faca-curso {
+    font-size: 13px;
+    margin-right: 10px;
+    height: 50px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: 900;
+    font-family: 'nunito', sans-serif;
+  }
+
+
+  .content-box>.content-p {
+    color: white;
+    font-weight: 900;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'nunito', sans-serif;
+  }
+
+  .content-box>.content-pds {
+    color: white;
+    font-weight: 900;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'nunito', sans-serif;
+  }
+
+  .content-box>.content-ds {
+    color: white;
+    font-weight: 900;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'nunito', sans-serif;
+  }
+
+  .content-box>.content-subpds {
+    margin-top: 2px;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'nunito', sans-serif;
+  }
+
+  .content-box>.content-pmeca {
+    color: white;
+    font-weight: 900;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'nunito', sans-serif;
+  }
+
+  .title-box {
+    margin: 0 auto;
+    padding-top: 15px;
+  }
+
+  .title-box>h3 {
+    color: white;
+    font-size: 20px;
+    font-family: 'Bree Serif', serif;
+    text-align: center;
+  }
+}
+
+/* Titulo responsivo dos FlexBox Ipad Pro */
+
+@media (max-width: 1366px) {
+  .textos_cursos {
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 50px;
+    background-image: linear-gradient(#e74c3c, #c0392b);
+    width: 95%;
+    height: 50px;
+  }
+  .textos_cursos>p {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+  }
+}
+
+.logo__header {
+  margin-left: 50px;
+}
+
+@media(max-width: 1258px) {
+  .logo__header {
+    display: none;
+  }
+}
+
+
+.cursos-aside {
+  transition: 0.3s !important;
+}
+
+.cursos-aside:hover {
+  transition: 0.3s !important;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  cursor: pointer !important;
+  color: rgb(177, 21, 21) !important;
+  padding-left: 5px;
+}
+
+.card_cursos {
+  margin: 20px 20px 0 0;
+  text-align: justify;
+  padding: 20px 50px 0 20px;
+  background-color: #fdfdfd;
+  border-left: 1px solid rgba(63, 63, 63, 0.151);
+  border-right: 1px solid rgba(63, 63, 63, 0.151);
+}
+
+.recent_card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
